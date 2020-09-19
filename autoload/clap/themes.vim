@@ -189,22 +189,22 @@ function! clap#themes#init() abort
   hi default link ClapPopupCursor Type
 
   if exists('g:clap_theme')
-    " If anything is wrong, just use the default theme.
     if type(g:clap_theme) == v:t_string
       try
         let s:palette = g:clap#themes#{g:clap_theme}#palette
       catch
-        let s:palette = g:clap#themes#material_design_dark#palette
+        " use default theme
       endtry
     elseif type(g:clap_theme) == v:t_dict
       let s:palette = g:clap_theme
     else
-      let s:palette = g:clap#themes#material_design_dark#palette
+      " use default theme
     endif
   elseif exists('g:colors_name')
     try
       let s:palette = g:clap#themes#{g:colors_name}#palette
     catch
+      " use default theme
     endtry
   endif
 
